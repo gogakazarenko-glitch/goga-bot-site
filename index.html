@@ -12,15 +12,10 @@
 
   <style>
     :root {
-      --overlay: rgba(0, 0, 0, 0.6);
+      --overlay: rgba(0,0,0,0.6);
       --text: #ffffff;
-      --menu-bg: rgba(0, 0, 0, 0.6);
-      --accent: #00aaff;
-      --section-padding-desktop: 80px;
-      --section-padding-mobile: 40px;
+      --menu-bg: rgba(0,0,0,0.6);
     }
-
-    * { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -29,7 +24,6 @@
       background: #000;
     }
 
-    /* Fixed top menu */
     .top-nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -42,197 +36,63 @@
       justify-content: space-between;
       padding: 0 25px;
     }
+    .logo { font-weight: 800; font-size: 1rem; letter-spacing: 0.1em; }
+    .logo span { display:block; font-weight:300; font-size:0.85rem; letter-spacing:0.25em; }
+    .nav-links a { color:#fff; text-decoration:none; margin-left:20px; font-size:0.95rem; position:relative; }
+    .nav-links a::after { content:""; position:absolute; left:0; bottom:-3px; width:0; height:2px; background:#00aaff; transition:width 0.2s; }
+    .nav-links a:hover::after { width:100%; }
 
-    .logo {
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      line-height: 1;
-      font-size: 1rem;
-    }
-    .logo span {
-      display: block;
-      font-weight: 300;
-      letter-spacing: 0.25em;
-      font-size: 0.85rem;
-    }
-
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 0.95rem;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0; bottom: -3px;
-      width: 0; height: 2px;
-      background: var(--accent);
-      transition: width 0.2s;
-    }
-    .nav-links a:hover::after { width: 100%; }
-
-    /* Scroll container */
-    .snap-container {
-      height: 100vh;
-      overflow-y: auto;
-      scroll-snap-type: y mandatory;
-    }
-
-    /* Sections */
+    .snap-container { overflow-y:auto; }
     .snap-section {
-      height: 100vh;
-      scroll-snap-align: start;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding: var(--section-padding-desktop) 0;
-      color: var(--text);
+      min-height:100vh;
+      position:relative;
+      display:flex;
+      align-items:center;
+      padding:80px 0;
+      color:var(--text);
     }
+    .bg-img { position:absolute; inset:0; background-size:cover; background-position:center; z-index:1; }
+    .overlay { position:absolute; inset:0; background:var(--overlay); z-index:2; }
+    .content { position:relative; z-index:3; max-width:900px; width:100%; padding:0 20px; margin:0 auto; }
+    .centered { text-align:center; }
 
-    /* Background image and overlay */
-    .bg-img {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      z-index: 1;
-    }
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: var(--overlay);
-      z-index: 2;
-    }
+    h1 { font-size:40px; margin-bottom:10px; }
+    h2 { font-size:28px; margin-bottom:10px; }
+    h5 { font-size:20px; margin-bottom:6px; }
 
-    /* Content */
-    .content {
-      position: relative;
-      z-index: 3;
-      max-width: 900px;
-      width: 100%;
-      padding: 0 20px;
-      margin: 0 auto;
-    }
-
-    .centered { text-align: center; }
-    .left { text-align: left; }
-    .right { text-align: right; }
-
-    /* Animation */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(25px);
-      animation: fadeUp 1.2s forwards;
-    }
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Buttons */
     .btn-outline-white {
-      border: 2px solid #fff;
-      color: #fff;
-      padding: 10px 22px;
-      border-radius: 30px;
-      transition: 0.3s;
-      display: inline-block;
-      text-decoration: none;
+      border:2px solid #fff; color:#fff; padding:10px 22px; border-radius:30px;
+      transition:0.3s; display:inline-block; text-decoration:none;
     }
-    .btn-outline-white:hover { background: #fff; color: #000; }
-
+    .btn-outline-white:hover { background:#fff; color:#000; }
     .btn-solid {
-      background: #fff;
-      color: #000;
-      padding: 10px 22px;
-      border-radius: 30px;
-      border: none;
-      transition: 0.3s;
-      display: inline-block;
-      text-decoration: none;
+      background:#fff; color:#000; padding:10px 22px; border-radius:30px;
+      border:none; transition:0.3s; display:inline-block; text-decoration:none;
     }
-    .btn-solid:hover { opacity: 0.85; }
+    .btn-solid:hover { opacity:0.85; }
 
-    /* Utility: spacer to account for fixed nav */
-    .with-top-space {
-      padding-top: calc(var(--section-padding-desktop) + 60px);
-    }
-
-    /* Service block image banner */
     .services-banner {
-      width: 100%;
-      height: 180px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 15px;
-      margin-bottom: 25px;
-      opacity: 0.9;
+      width:100%; height:180px; background-size:cover; background-position:center;
+      border-radius:15px; margin-bottom:25px; opacity:0.9;
     }
-
-    /* Card styles */
-    .project-card,
-    .service-card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 15px;
+    .service-card, .project-card {
+      background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;
     }
-
     .card-image {
-      width: 100%;
-      height: 180px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 10px;
-      margin-bottom: 15px;
+      width:100%; height:140px; background-size:cover; background-position:center;
+      border-radius:10px; margin-bottom:15px;
     }
 
-    /* Headings */
-    h1 { font-size: 40px; margin-bottom: 10px; }
-    h2 { font-size: 28px; margin-bottom: 10px; }
-    h5 { font-size: 20px; margin-bottom: 6px; }
-
-    /* MOBILE FIXES */
-    @media (max-width: 768px) {
-      /* Compact menu */
-      .top-nav { height: 50px; padding: 0 15px; }
-      .nav-links a { font-size: 0.85rem; margin-left: 12px; }
-
-      /* Remove scroll-snap on mobile for smoother UX */
-      .snap-container { height: auto; scroll-snap-type: none; }
-      .snap-section { min-height: 100vh; height: auto; padding: var(--section-padding-mobile) 0; }
-
-      /* Account for fixed nav spacing */
-      .with-top-space { padding-top: calc(var(--section-padding-mobile) + 50px); }
-
-      /* Typography */
-      h1 { font-size: 26px; }
-      h2 { font-size: 22px; }
-      h5 { font-size: 18px; }
-
-      /* Content width */
-      .content { max-width: 95%; }
-
-      /* Grid: one column on mobile */
-      .col-md-3, .col-md-6 {
-        width: 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
-      }
-
-      /* Images */
-      .services-banner { height: 120px; }
-      .card-image { height: 120px; }
-
-      /* Cards spacing */
-      .service-card, .project-card {
-        padding: 20px;
-        margin-bottom: 20px;
-      }
-
-      /* Align text to left on mobile for readability */
-      .centered { text-align: left; }
-      .right { text-align: left; }
+    @media (max-width:768px) {
+      .top-nav { height:50px; padding:0 15px; }
+      .nav-links a { font-size:0.85rem; margin-left:12px; }
+      h1 { font-size:26px; } h2 { font-size:22px; } h5 { font-size:18px; }
+      .content { max-width:95%; }
+      .col-md-3, .col-md-6 { width:100%; flex:0 0 100%; max-width:100%; }
+      .services-banner { height:120px; }
+      .card-image { height:120px; }
+      .service-card, .project-card { padding:20px; margin-bottom:20px; }
+      .centered { text-align:left; }
     }
   </style>
 </head>
@@ -250,19 +110,16 @@
     </div>
   </nav>
 
-  <!-- SCROLL CONTAINER -->
   <div class="snap-container">
 
     <!-- HERO -->
-    <section id="hero" class="snap-section with-top-space">
+    <section id="hero" class="snap-section">
       <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');"></div>
       <div class="overlay"></div>
-      <div class="content centered fade-up">
+      <div class="content centered">
         <h1>Kazarenko Digital</h1>
         <p>Telegram‑боты, автоответчики, CRM и сайты под ключ</p>
-        <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-3">
-          <i class="fa-brands fa-telegram"></i> Связаться
-        </a>
+        <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-3"><i class="fa-brands fa-telegram"></i> Связаться</a>
       </div>
     </section>
 
@@ -270,13 +127,9 @@
     <section id="about" class="snap-section">
       <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475');"></div>
       <div class="overlay"></div>
-      <div class="content left fade-up">
+      <div class="content">
         <h2>О компании</h2>
-        <p>
-          Я — Гога, разработчик Telegram‑ботов и сайтов.
-          Делаю автоответчики, CRM‑ботов, чат‑ботов для бизнеса, лендинги и автоматизацию процессов.
-          Помогаю компаниям экономить время, не терять заявки и выстраивать удобную коммуникацию с клиентами.
-        </p>
+        <p>Я — Гога, разработчик Telegram‑ботов и сайтов. Делаю автоответчики, CRM‑ботов, чат‑ботов для бизнеса, лендинги и автоматизацию процессов.</p>
       </div>
     </section>
 
@@ -284,120 +137,17 @@
     <section id="services" class="snap-section">
       <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1559027615-ce3b53c9f8a2');"></div>
       <div class="overlay"></div>
-
-      <div class="content fade-up centered">
+      <div class="content centered">
         <div class="services-banner" style="background-image:url('https://images.unsplash.com/photo-1551650975-87deedd944c3');"></div>
-
         <h2>Услуги</h2>
         <p>Комплексные digital‑решения для бизнеса</p>
-
         <div class="row mt-4 g-4">
-          <div class="col-md-3">
-            <div class="service-card">
-              <h5>Чат‑боты</h5>
-              <p style="font-size:0.9rem;">Умные боты для бизнеса</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="service-card">
-              <h5>Автоответчик</h5>
-              <p style="font-size:0.9rem;">Ответы 24/7 без менеджера</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="service-card">
-              <h5>CRM‑боты</h5>
-              <p style="font-size:0.9rem;">Учёт клиентов, статусы, аналитика</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="service-card">
-              <h5>Сайты</h5>
-              <p style="font-size:0.9rem;">Лендинги и визитки</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
-            </div>
-          </div>
+          <div class="col-md-3"><div class="service-card"><h5>Чат‑боты</h5><p>Умные боты для бизнеса</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a></div></div>
+          <div class="col-md-3"><div class="service-card"><h5>Автоответчик</h5><p>Ответы 24/7 без менеджера</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a></div></div>
+          <div class="col-md-3"><div class="service-card"><h5>CRM‑боты</h5><p>Учёт клиентов, статусы, аналитика</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a></div></div>
+          <div class="col-md-3"><div class="service-card"><h5>Сайты</h5><p>Лендинги и визитки</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a></div></div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS (only cards, 2×2 on desktop, 1×4 on mobile) -->
-    <section id="projects" class="snap-section">
-      <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1551650975-87deedd944c3');"></div>
-      <div class="overlay"></div>
-
-      <div class="content fade-up centered">
-        <div class="row mt-4 g-4">
-
-          <div class="col-md-6">
-            <div class="project-card">
-              <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984');"></div>
-              <h5>Бот для онлайн‑школы</h5>
-              <p style="font-size:0.9rem;">Автоматизация заявок, уроков и рассылок</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="project-card">
-              <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1556228720-195a672e8a03');"></div>
-              <h5>Автоответчик для салона красоты</h5>
-              <p style="font-size:0.9rem;">Запись 24/7, напоминания, ответы без менеджера</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="project-card">
-              <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1556155092-8707de31f9c4');"></div>
-              <h5>CRM‑бот для менеджеров</h5>
-              <p style="font-size:0.9rem;">Учёт клиентов, статусы, аналитика</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="project-card">
-              <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');"></div>
-              <h5>Лендинг для бизнеса</h5>
-              <p style="font-size:0.9rem;">Продающий сайт под ключ</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACTS -->
-    <section id="contacts" class="snap-section">
-      <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9');"></div>
-      <div class="overlay"></div>
-      <div class="content right fade-up">
-        <h2>Контакты</h2>
-        <p>Связаться со мной можно через:</p>
-        <a href="https://t.me/GeorgyKazarenko" class="btn-solid mt-3">
-          <i class="fa-brands fa-telegram"></i> Telegram
-        </a>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <section class="snap-section">
-      <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1527443224154-c4a3942d3acf');"></div>
-      <div class="overlay"></div>
-      <div class="content centered fade-up">
-        <p>Kazarenko Digital • Telegram‑боты, автоответчики, CRM и сайты</p>
-      </div>
-    </section>
-
-  </div>
-
-</body>
-</html>
+    <!-- PROJECTS -->
