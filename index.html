@@ -36,7 +36,7 @@
 
     .hero {
       min-height: 100vh;
-      background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -62,20 +62,7 @@
     .hero p {
       font-size: 1.2rem;
     }
-    .btn-custom {
-      background: #fff;
-      color: var(--accent);
-      font-weight: 600;
-      border-radius: 30px;
-      padding: 12px 25px;
-      transition: 0.3s;
-      border: none;
-    }
-    .btn-custom:hover {
-      background: var(--accent);
-      color: #fff;
-      transform: translateY(-1px);
-    }
+
     .btn-outline-custom {
       border-radius: 30px;
       padding: 10px 22px;
@@ -98,26 +85,6 @@
       background: var(--bg-alt);
     }
 
-    .parallax {
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-shadow: 1px 1px 4px #000;
-      position: relative;
-    }
-    .parallax::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-    }
-    .parallax > .container,
-    .parallax > div {
-      position: relative;
-      z-index: 1;
-    }
-
     .card {
       background: var(--card-bg);
       border: none;
@@ -137,7 +104,6 @@
       font-size: 0.9rem;
     }
 
-    /* Анимации */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -160,7 +126,6 @@
       }
     }
 
-    /* Переключатель темы */
     .theme-toggle {
       position: fixed;
       top: 15px;
@@ -179,27 +144,7 @@
       color: #fff;
       cursor: pointer;
     }
-    .theme-toggle button i {
-      font-size: 1rem;
-    }
 
-    /* QR */
-    .qr-box {
-      display: inline-block;
-      padding: 12px;
-      border-radius: 16px;
-      background: var(--bg-alt);
-    }
-    .qr-box img {
-      width: 140px;
-      height: 140px;
-      border-radius: 12px;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
-      .parallax { background-attachment: scroll; }
-    }
   </style>
 </head>
 <body>
@@ -216,42 +161,17 @@
   <header class="hero">
     <div class="hero-content">
       <h1 class="fade-in"><i class="fa-solid fa-robot"></i> Kazarenko Digital</h1>
-      <p class="lead fade-in-delay">Telegram‑боты, автоответчики и сайты под ключ</p>
+      <p class="lead fade-in-delay">Telegram‑боты, автоответчики, CRM и сайты под ключ</p>
+
       <div class="mt-3 fade-in-late">
-        <a href="https://t.me/your_cafe_bot" class="btn btn-custom m-2">
-          <i class="fa-solid fa-utensils"></i> Кафе‑бот
-        </a>
-        <a href="https://t.me/your_sport_bot" class="btn btn-custom m-2">
-          <i class="fa-solid fa-dumbbell"></i> Спорт‑бот
-        </a>
         <a href="https://t.me/GeorgyKazarenko" class="btn btn-outline-custom m-2">
-          <i class="fa-brands fa-telegram"></i> Заказать бота
+          <i class="fa-brands fa-telegram"></i> Связаться
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Кафе -->
-  <section class="parallax text-center" style="background-image:url('https://images.unsplash.com/photo-1555396273-367ea4eb4f9b');">
-    <div class="container py-5">
-      <h2 class="fade-in"><i class="fa-solid fa-utensils"></i> Бот для кафе</h2>
-      <p class="fade-in-delay">
-        Меню, корзина, оформление заказа и уведомления — всё прямо в Telegram.
-      </p>
-    </div>
-  </section>
-
-  <!-- Спорт -->
-  <section class="parallax text-center" style="background-image:url('https://images.unsplash.com/photo-1517649763962-0c623066013b');">
-    <div class="container py-5">
-      <h2 class="fade-in"><i class="fa-solid fa-dumbbell"></i> Бот для спортклуба</h2>
-      <p class="fade-in-delay">
-        Расписание, запись, напоминания и автоматизация клиентов.
-      </p>
-    </div>
-  </section>
-
-  <!-- О себе + QR -->
+  <!-- О себе -->
   <section class="bg-alt text-center">
     <div class="container">
       <h2 class="fade-in"><i class="fa-solid fa-user"></i> О себе</h2>
@@ -260,17 +180,6 @@
         Делаю автоответчики, CRM‑ботов, чат‑ботов для бизнеса, лендинги и автоматизацию процессов.  
         Помогаю компаниям экономить время и получать больше клиентов.
       </p>
-      <div class="mt-4 fade-in-late">
-        <a href="https://t.me/GeorgyKazarenko" class="btn btn-primary m-2">
-          <i class="fa-brands fa-telegram"></i> Связаться в Telegram
-        </a>
-      </div>
-      <div class="mt-4 fade-in-late">
-        <p class="mb-2">Можно просто навести камеру на QR‑код:</p>
-        <div class="qr-box">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://t.me/GeorgyKazarenko" alt="QR to Telegram">
-        </div>
-      </div>
     </div>
   </section>
 
@@ -281,30 +190,6 @@
 
     <div class="container mt-4">
       <div class="row g-4">
-
-        <!-- Кафе бот -->
-        <div class="col-md-4 fade-in">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <i class="fa-solid fa-utensils fa-3x mb-3"></i>
-              <h5 class="card-title">Бот для кафе</h5>
-              <p class="card-text">Меню, корзина, оформление заказа и уведомления.</p>
-              <a href="https://t.me/your_cafe_bot" class="btn btn-primary">Открыть</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Спорт бот -->
-        <div class="col-md-4 fade-in">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <i class="fa-solid fa-dumbbell fa-3x mb-3"></i>
-              <h5 class="card-title">Бот для спортклуба</h5>
-              <p class="card-text">Расписание, запись на тренировки и напоминания.</p>
-              <a href="https://t.me/your_sport_bot" class="btn btn-primary">Открыть</a>
-            </div>
-          </div>
-        </div>
 
         <!-- Автоответчик -->
         <div class="col-md-4 fade-in">
@@ -318,6 +203,18 @@
           </div>
         </div>
 
+        <!-- CRM‑бот -->
+        <div class="col-md-4 fade-in">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <i class="fa-solid fa-database fa-3x mb-3"></i>
+              <h5 class="card-title">CRM‑бот</h5>
+              <p class="card-text">Учёт клиентов, заявки, напоминания, интеграции и автоматизация.</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn btn-primary">Обсудить</a>
+            </div>
+          </div>
+        </div>
+
         <!-- Разработка сайтов -->
         <div class="col-md-4 fade-in">
           <div class="card shadow-sm h-100">
@@ -326,30 +223,6 @@
               <h5 class="card-title">Разработка сайтов</h5>
               <p class="card-text">Лендинги, визитки, страницы проектов, адаптивный дизайн.</p>
               <a href="https://t.me/GeorgyKazarenko" class="btn btn-primary">Заказать сайт</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Бот для бизнеса -->
-        <div class="col-md-4 fade-in">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <i class="fa-solid fa-briefcase fa-3x mb-3"></i>
-              <h5 class="card-title">Бот для бизнеса</h5>
-              <p class="card-text">CRM‑боты, заявки, бронирование, напоминания, интеграции.</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn btn-primary">Обсудить</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Индивидуальный проект -->
-        <div class="col-md-4 fade-in">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <i class="fa-solid fa-star fa-3x mb-3"></i>
-              <h5 class="card-title">Индивидуальный проект</h5>
-              <p class="card-text">Сделаю бота или сайт под любую задачу — от идеи до запуска.</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn btn-primary">Написать</a>
             </div>
           </div>
         </div>
@@ -378,7 +251,7 @@
 
   <!-- Footer -->
   <footer>
-    <p><i class="fa-solid fa-code"></i> Kazarenko Digital • Telegram‑боты, автоответчики и сайты</p>
+    <p><i class="fa-solid fa-code"></i> Kazarenko Digital • Telegram‑боты, автоответчики, CRM и сайты</p>
   </footer>
 
   <script>
