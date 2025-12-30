@@ -42,9 +42,9 @@
       position: relative;
       display: flex;
       align-items: center;
-      padding: 70px 20px 100px;
+      padding: 60px 15px;
       box-sizing: border-box;
-      overflow-y: auto; /* на всякий случай */
+      overflow-y: auto;
     }
 
     .bg-img {
@@ -97,8 +97,9 @@
     .logo { font-weight: 800; letter-spacing: 0.1em; font-size: 1.3rem; }
     .logo span { display: block; font-weight: 300; letter-spacing: 0.25em; font-size: 0.9rem; }
 
+    .nav-links { display: flex; gap: 20px; }
     .nav-links a {
-      color: #fff; text-decoration: none; font-size: 1rem; position: relative; margin: 0 15px;
+      color: #fff; text-decoration: none; font-size: 1rem; position: relative;
     }
     .nav-links a::after {
       content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px;
@@ -108,7 +109,7 @@
 
     /* Кнопки */
     .btn-outline-white, .btn-solid {
-      padding: 12px 30px; border-radius: 30px; text-decoration: none;
+      padding: 10px 25px; border-radius: 30px; text-decoration: none;
       display: inline-block; font-weight: 500; transition: 0.3s;
     }
     .btn-outline-white { border: 2px solid #fff; color: #fff; }
@@ -120,17 +121,18 @@
     .card-custom {
       background: rgba(255,255,255,0.1);
       border-radius: 15px;
-      padding: 30px;
+      padding: 20px;
       backdrop-filter: blur(5px);
+      margin-bottom: 15px;
     }
 
     .card-img {
       width: 100%;
-      height: 220px;
+      height: 180px;
       background-size: cover;
       background-position: center;
       border-radius: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .hamburger { display: none; font-size: 1.8rem; color: #fff; cursor: pointer; }
@@ -150,22 +152,23 @@
       .nav-links {
         position: fixed; top: 60px; left: 0; right: 0;
         background: var(--menu-bg); backdrop-filter: blur(12px);
-        flex-direction: column; align-items: center; padding: 40px 0; gap: 30px;
+        flex-direction: column; align-items: center; padding: 30px 0; gap: 25px;
         transform: translateY(-100%); transition: transform 0.4s ease;
       }
       .nav-links.active { transform: translateY(0); }
 
-      h1 { font-size: 2.2rem; }
-      h2 { font-size: 2rem; }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.8rem; }
+      p { font-size: 0.95rem; }
 
-      .card-img { height: 180px; }
-      .card-custom { padding: 25px; }
+      .card-img { height: 140px; }
+      .card-custom { padding: 15px; margin-bottom: 10px; }
     }
 
     @media (max-width: 576px) {
-      h1 { font-size: 1.9rem; }
-      h2 { font-size: 1.7rem; }
-      .card-img { height: 160px; }
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.6rem; }
+      .card-img { height: 120px; }
     }
 
     .mobile-swiper-container { display: none; }
@@ -190,14 +193,85 @@
 
   <!-- ДЕСКТОП: вертикальный скролл -->
   <div class="snap-container">
-    <!-- (Секции остаются такими же, как в предыдущей версии — не менял) -->
-    <section id="hero" class="snap-section">...</section>
-    <section id="about" class="snap-section">...</section>
-    <!-- Услуги и Проекты — как раньше, с сеткой Bootstrap -->
-    <!-- Вставь их из предыдущего кода -->
+
+    <section id="hero" class="snap-section">
+      <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');"></div>
+      <div class="overlay"></div>
+      <div class="content text-center fade-up">
+        <h1>Kazarenko Digital</h1>
+        <p class="lead fs-4">Telegram‑боты, автоответчики, CRM и сайты под ключ</p>
+        <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-4">
+          <i class="fa-brands fa-telegram"></i> Связаться
+        </a>
+      </div>
+    </section>
+
+    <section id="about" class="snap-section">
+      <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475');"></div>
+      <div class="overlay"></div>
+      <div class="content fade-up">
+        <h2>О компании</h2>
+        <p class="fs-5">
+          Я — Гога, разработчик Telegram‑ботов и сайтов.<br><br>
+          Делаю автоответчики, CRM‑ботов, чат‑ботов для бизнеса, лендинги и автоматизацию процессов.<br><br>
+          Помогаю компаниям экономить время, не терять заявки и выстраивать удобную коммуникацию с клиентами.
+        </p>
+      </div>
+    </section>
+
+    <section id="services" class="snap-section">
+      <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1559027615-ce3b53c9f8a2');"></div>
+      <div class="overlay"></div>
+      <div class="content text-center fade-up">
+        <div class="card-img mb-5" style="background-image:url('https://images.unsplash.com/photo-1551650975-87deedd944c3'); max-width:600px; margin:0 auto; border-radius:15px;"></div>
+        <h2>Услуги</h2>
+        <p class="lead">Комплексные digital‑решения для бизнеса</p>
+        <div class="row mt-5 g-4 justify-content-center">
+          <div class="col-lg-3 col-md-6"><div class="card-custom"><h5>Чат‑боты</h5><p>Умные боты для бизнеса</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a></div></div>
+          <div class="col-lg-3 col-md-6"><div class="card-custom"><h5>Автоответчик</h5><p>Ответы 24/7 без менеджера</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a></div></div>
+          <div class="col-lg-3 col-md-6"><div class="card-custom"><h5>CRM‑боты</h5><p>Учёт клиентов, статусы, аналитика</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a></div></div>
+          <div class="col-lg-3 col-md-6"><div class="card-custom"><h5>Сайты</h5><p>Лендинги и визитки</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="snap-section">
+      <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1551650975-87deedd944c3');"></div>
+      <div class="overlay"></div>
+      <div class="content text-center fade-up">
+        <h2 class="mb-5">Проекты</h2>
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-6 col-md-8"><div class="card-custom"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984');"></div><h5>Бот для онлайн‑школы</h5><p>Автоматизация заявок, уроков и рассылок</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a></div></div>
+          <div class="col-lg-6 col-md-8"><div class="card-custom"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1556228720-195a672e8a03');"></div><h5>Автоответчик для салона красоты</h5><p>Запись 24/7, напоминания, ответы без менеджера</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a></div></div>
+          <div class="col-lg-6 col-md-8"><div class="card-custom"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1556155092-8707de31f9c4');"></div><h5>CRM‑бот для менеджеров</h5><p>Учёт клиентов, статусы, аналитика</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a></div></div>
+          <div class="col-lg-6 col-md-8"><div class="card-custom"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');"></div><h5>Лендинг для бизнеса</h5><p>Продающий сайт под ключ</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts" class="snap-section">
+      <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9');"></div>
+      <div class="overlay"></div>
+      <div class="content text-end fade-up">
+        <h2>Контакты</h2>
+        <p class="fs-5">Связаться со мной можно через:</p>
+        <a href="https://t.me/GeorgyKazarenko" class="btn-solid mt-4">
+          <i class="fa-brands fa-telegram"></i> Telegram
+        </a>
+      </div>
+    </section>
+
+    <section class="snap-section">
+      <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1527443224154-c4a3942d3acf');"></div>
+      <div class="overlay"></div>
+      <div class="content text-center fade-up">
+        <p>Kazarenko Digital • Telegram‑боты, автоответчики, CRM и сайты</p>
+      </div>
+    </section>
+
   </div>
 
-  <!-- МОБИЛЬНАЯ ВЕРСИЯ: свайп -->
+  <!-- МОБИЛЬНАЯ: свайп -->
   <div class="mobile-swiper-container">
     <div class="swiper">
       <div class="swiper-wrapper">
@@ -208,8 +282,8 @@
           <div class="overlay"></div>
           <div class="content text-center fade-up">
             <h1>Kazarenko Digital</h1>
-            <p class="lead fs-4">Telegram‑боты, автоответчики, CRM и сайты под ключ</p>
-            <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-4">
+            <p class="lead">Telegram‑боты, автоответчики, CRM и сайты под ключ</p>
+            <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-3">
               <i class="fa-brands fa-telegram"></i> Связаться
             </a>
           </div>
@@ -221,49 +295,66 @@
           <div class="overlay"></div>
           <div class="content fade-up">
             <h2>О компании</h2>
-            <p class="fs-5">
-              Я — Гога, разработчик Telegram‑ботов и сайтов.<br><br>
-              Делаю автоответчики, CRM‑ботов, чат‑ботов для бизнеса, лендинги и автоматизацию процессов.<br><br>
+            <p>
+              Я — Гога, разработчик Telegram‑ботов и сайтов.<br>
+              Делаю автоответчики, CRM‑ботов, чат‑ботов для бизнеса, лендинги и автоматизацию процессов.<br>
               Помогаю компаниям экономить время, не терять заявки и выстраивать удобную коммуникацию с клиентами.
             </p>
           </div>
         </div>
 
-        <!-- УСЛУГИ — по одной карточке на слайд -->
+        <!-- Услуги - каждый как отдельный слайд -->
         <div class="swiper-slide">
           <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1559027615-ce3b53c9f8a2');"></div>
           <div class="overlay"></div>
           <div class="content text-center fade-up">
             <h2>Услуги</h2>
-            <p class="lead mb-5">Комплексные digital‑решения для бизнеса</p>
-            
-            <div class="card-custom mb-4">
+            <p class="lead mb-4">Комплексные digital‑решения для бизнеса</p>
+            <div class="card-custom">
               <h5>Чат‑боты</h5>
               <p>Умные боты для бизнеса</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-3">Связаться</a>
-            </div>
-            
-            <div class="card-custom mb-4">
-              <h5>Автоответчик</h5>
-              <p>Ответы 24/7 без менеджера</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-3">Связаться</a>
-            </div>
-            
-            <div class="card-custom mb-4">
-              <h5>CRM‑боты</h5>
-              <p>Учёт клиентов, статусы, аналитика</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-3">Связаться</a>
-            </div>
-            
-            <div class="card-custom">
-              <h5>Сайты</h5>
-              <p>Лендинги и визитки</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-3">Связаться</a>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
             </div>
           </div>
         </div>
 
-        <!-- ПРОЕКТЫ — каждая карточка на отдельный слайд -->
+        <div class="swiper-slide">
+          <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1559027615-ce3b53c9f8a2');"></div>
+          <div class="overlay"></div>
+          <div class="content text-center fade-up">
+            <div class="card-custom">
+              <h5>Автоответчик</h5>
+              <p>Ответы 24/7 без менеджера</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1559027615-ce3b53c9f8a2');"></div>
+          <div class="overlay"></div>
+          <div class="content text-center fade-up">
+            <div class="card-custom">
+              <h5>CRM‑боты</h5>
+              <p>Учёт клиентов, статусы, аналитика</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1559027615-ce3b53c9f8a2');"></div>
+          <div class="overlay"></div>
+          <div class="content text-center fade-up">
+            <div class="card-custom">
+              <h5>Сайты</h5>
+              <p>Лендинги и визитки</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Проекты - каждый как отдельный слайд -->
         <div class="swiper-slide">
           <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1551650975-87deedd944c3');"></div>
           <div class="overlay"></div>
@@ -273,7 +364,7 @@
               <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984');"></div>
               <h5>Бот для онлайн‑школы</h5>
               <p>Автоматизация заявок, уроков и рассылок</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-3">Связаться</a>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
             </div>
           </div>
         </div>
@@ -286,7 +377,7 @@
               <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1556228720-195a672e8a03');"></div>
               <h5>Автоответчик для салона красоты</h5>
               <p>Запись 24/7, напоминания, ответы без менеджера</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-3">Связаться</a>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
             </div>
           </div>
         </div>
@@ -299,7 +390,7 @@
               <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1556155092-8707de31f9c4');"></div>
               <h5>CRM‑бот для менеджеров</h5>
               <p>Учёт клиентов, статусы, аналитика</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-3">Связаться</a>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
             </div>
           </div>
         </div>
@@ -312,7 +403,7 @@
               <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');"></div>
               <h5>Лендинг для бизнеса</h5>
               <p>Продающий сайт под ключ</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-3">Связаться</a>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a>
             </div>
           </div>
         </div>
@@ -323,8 +414,8 @@
           <div class="overlay"></div>
           <div class="content text-end fade-up">
             <h2>Контакты</h2>
-            <p class="fs-5">Связаться со мной можно через:</p>
-            <a href="https://t.me/GeorgyKazarenko" class="btn-solid mt-4">
+            <p>Связаться со мной можно через:</p>
+            <a href="https://t.me/GeorgyKazarenko" class="btn-solid mt-3">
               <i class="fa-brands fa-telegram"></i> Telegram
             </a>
           </div>
@@ -357,5 +448,6 @@
     }
     window.addEventListener('resize', () => location.reload());
   </script>
+
 </body>
 </html>
