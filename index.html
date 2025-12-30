@@ -57,36 +57,23 @@
       padding:80px 0;
     }
 
-    .bg-img {
-      position:absolute; inset:0;
-      background-size:cover; background-position:center;
-      z-index:1;
-    }
-    .overlay {
-      position:absolute; inset:0;
-      background:var(--overlay);
-      z-index:2;
-    }
+    .bg-img { position:absolute; inset:0; background-size:cover; background-position:center; z-index:1; }
+    .overlay { position:absolute; inset:0; background:var(--overlay); z-index:2; }
 
     .content {
-      position:relative;
-      z-index:3;
-      max-width:900px;
-      width:100%;
-      padding:0 20px;
-      margin:0 auto;
+      position:relative; z-index:3;
+      max-width:900px; width:100%;
+      padding:0 20px; margin:0 auto;
     }
 
     .centered { text-align:center; }
     .right { text-align:right; }
     .left { text-align:left; }
 
-    /* TEXT */
     h1 { font-size:40px; margin-bottom:10px; }
     h2 { font-size:28px; margin-bottom:10px; }
     h5 { font-size:20px; margin-bottom:6px; }
 
-    /* BUTTONS */
     .btn-outline-white {
       border:2px solid #fff; color:#fff;
       padding:10px 22px; border-radius:30px;
@@ -103,7 +90,6 @@
     }
     .btn-solid:hover { opacity:0.85; }
 
-    /* CARDS */
     .service-card, .project-card {
       background:rgba(255,255,255,0.1);
       border-radius:15px;
@@ -111,12 +97,9 @@
     }
 
     .card-image {
-      width:100%;
-      height:140px;
-      background-size:cover;
-      background-position:center;
-      border-radius:10px;
-      margin-bottom:15px;
+      width:100%; height:140px;
+      background-size:cover; background-position:center;
+      border-radius:10px; margin-bottom:15px;
     }
 
     .services-banner {
@@ -126,28 +109,15 @@
       opacity:0.9;
     }
 
-    /* MOBILE */
     @media (max-width:768px) {
       .top-nav { height:50px; padding:0 15px; }
       .nav-links a { font-size:0.85rem; margin-left:12px; }
-
-      h1 { font-size:26px; }
-      h2 { font-size:22px; }
-      h5 { font-size:18px; }
-
+      h1 { font-size:26px; } h2 { font-size:22px; } h5 { font-size:18px; }
       .content { max-width:95%; }
-
-      .col-md-3, .col-md-6 {
-        width:100%; max-width:100%; flex:0 0 100%;
-      }
-
+      .col-md-3, .col-md-6 { width:100%; max-width:100%; flex:0 0 100%; }
       .services-banner { height:120px; }
       .card-image { height:120px; }
-
-      .service-card, .project-card {
-        padding:20px; margin-bottom:20px;
-      }
-
+      .service-card, .project-card { padding:20px; margin-bottom:20px; }
       .centered, .right { text-align:left; }
     }
   </style>
@@ -199,5 +169,4 @@
         <p>Комплексные digital‑решения для бизнеса</p>
         <div class="row mt-4 g-4">
           <div class="col-md-3"><div class="service-card"><h5>Чат‑боты</h5><p>Умные боты для бизнеса</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a></div></div>
-          <div class="col-md-3"><div class="service-card"><h5>Автоответчик</h5><p>Ответы 24/7 без менеджера</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a></div></div>
-          <div class="col-md-3"><div class="service-card"><h5>CRM‑боты</h5><p>Учёт клиентов, статусы, аналитика</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-2">Связаться</a></div
+          <div class="col-md-3"><div class="service-card"><h5>Автоответчик</h5><p>Ответы 24/7 без менеджера</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline
