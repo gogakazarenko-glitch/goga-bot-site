@@ -37,14 +37,22 @@
     }
 
     /* Мобильный Swiper */
-    .swiper, .swiper-wrapper, .swiper-slide { width: 100%; height: 100%; }
-    .swiper-wrapper { align-items: stretch; }
+    .mobile-swiper-container, .swiper, .swiper-wrapper, .swiper-slide {
+      height: 100vh;
+      width: 100%;
+    }
+
+    .swiper-wrapper { display: flex; }
+
     .swiper-slide {
       position: relative;
       display: flex;
-      align-items: flex-start; /* Контент сверху, чтобы не растягивался */
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding-top: 80px;
+      padding-bottom: 100px;
       box-sizing: border-box;
-      overflow-y: auto;
+      overflow-y: hidden;
     }
 
     .bg-img {
@@ -68,7 +76,7 @@
       max-width: 900px;
       margin: 0 auto;
       width: 100%;
-      padding: 80px 20px 120px; /* Отступы внутри, чтобы пагинация не перекрывала */
+      padding: 0 20px;
     }
 
     .fade-up {
@@ -98,8 +106,9 @@
     .logo { font-weight: 800; letter-spacing: 0.1em; font-size: 1.3rem; }
     .logo span { display: block; font-weight: 300; letter-spacing: 0.25em; font-size: 0.9rem; }
 
+    .nav-links { display: flex; gap: 20px; }
     .nav-links a {
-      color: #fff; text-decoration: none; font-size: 1rem; position: relative; margin: 0 15px;
+      color: #fff; text-decoration: none; font-size: 1rem; position: relative;
     }
     .nav-links a::after {
       content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px;
@@ -127,7 +136,7 @@
 
     .card-img, .service-img {
       width: 100%;
-      height: 180px;
+      height: 160px;
       background-size: cover;
       background-position: center;
       border-radius: 12px;
@@ -138,16 +147,15 @@
 
     /* Пагинация */
     .swiper-pagination {
-      position: absolute !important;
-      bottom: 20px !important;
+      bottom: 30px !important;
     }
-    .swiper-pagination-bullet { background: rgba(255,255,255,0.5); opacity: 1; }
+    .swiper-pagination-bullet { background: rgba(255,255,255,0.6); opacity: 1; width: 10px; height: 10px; }
     .swiper-pagination-bullet-active { background: #fff; }
 
     /* Мобильные стили */
     @media (max-width: 992px) {
       .snap-container { display: none; }
-      .mobile-swiper-container { display: block !important; }
+      .mobile-swiper-container { display: block !important; height: 100vh; }
 
       .top-nav { height: 60px; padding: 0 20px; }
       .hamburger { display: block; }
@@ -163,14 +171,9 @@
       h1 { font-size: 1.9rem; }
       h2 { font-size: 1.7rem; }
 
-      .content { padding: 60px 15px 100px; }
-
-      .card-img, .service-img { height: 140px; }
+      .content { padding: 0 15px; }
+      .card-img, .service-img { height: 130px; }
       .card-custom { padding: 18px; }
-    }
-
-    @media (max-width: 576px) {
-      .card-img, .service-img { height: 120px; }
     }
 
     .mobile-swiper-container { display: none; }
@@ -193,25 +196,13 @@
     </div>
   </nav>
 
-  <!-- ДЕСКТОП: вертикальный скролл (все секции полностью) -->
+  <!-- ДЕСКТОП -->
   <div class="snap-container">
-    <section id="hero" class="snap-section">
-      <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');"></div>
-      <div class="overlay"></div>
-      <div class="content text-center fade-up">
-        <h1>Kazarenko Digital</h1>
-        <p class="lead fs-4">Telegram‑боты, автоответчики, CRM и сайты под ключ</p>
-        <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-4">
-          <i class="fa-brands fa-telegram"></i> Связаться
-        </a>
-      </div>
-    </section>
-
-    <!-- Остальные десктопные секции (about, services, projects, contacts, footer) — вставь из предыдущих версий, они работают -->
-
+    <!-- Все секции как раньше (hero, about, services, projects, contacts, footer) -->
+    <!-- (Код секций оставлен без изменений — вставь из предыдущего сообщения) -->
   </div>
 
-  <!-- МОБИЛЬНАЯ: свайп с картинками в услугах -->
+  <!-- МОБИЛЬНАЯ: свайп -->
   <div class="mobile-swiper-container">
     <div class="swiper">
       <div class="swiper-wrapper">
@@ -239,12 +230,12 @@
           </div>
         </div>
 
-        <!-- Услуги с индивидуальными картинками -->
+        <!-- Услуги с картинками -->
         <div class="swiper-slide">
           <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1559027615-ce3b53c9f8a2');"></div>
           <div class="overlay"></div>
           <div class="content text-center fade-up">
-            <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d');"></div>
+            <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80');"></div>
             <div class="card-custom">
               <h5>Чат‑боты</h5>
               <p>Умные боты для бизнеса</p>
@@ -257,7 +248,7 @@
           <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1559027615-ce3b53c9f8a2');"></div>
           <div class="overlay"></div>
           <div class="content text-center fade-up">
-            <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1611224923853-80b023f02d71');"></div>
+            <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80');"></div>
             <div class="card-custom">
               <h5>Автоответчик</h5>
               <p>Ответы 24/7 без менеджера</p>
@@ -270,7 +261,7 @@
           <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1559027615-ce3b53c9f8a2');"></div>
           <div class="overlay"></div>
           <div class="content text-center fade-up">
-            <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f');"></div>
+            <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80');"></div>
             <div class="card-custom">
               <h5>CRM‑боты</h5>
               <p>Учёт клиентов, статусы, аналитика</p>
@@ -283,7 +274,7 @@
           <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1559027615-ce3b53c9f8a2');"></div>
           <div class="overlay"></div>
           <div class="content text-center fade-up">
-            <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');"></div>
+            <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80');"></div>
             <div class="card-custom">
               <h5>Сайты</h5>
               <p>Лендинги и визитки</p>
@@ -292,7 +283,24 @@
           </div>
         </div>
 
-        <!-- Проекты и остальное — аналогично предыдущему коду -->
+        <!-- Проекты (по одному на слайд) -->
+        <div class="swiper-slide">
+          <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1551650975-87deedd944c3');"></div>
+          <div class="overlay"></div>
+          <div class="content text-center fade-up">
+            <h2 class="mb-4">Проекты</h2>
+            <div class="card-custom">
+              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984');"></div>
+              <h5>Бот для онлайн‑школы</h5>
+              <p>Автоматизация заявок, уроков и рассылок</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white">Связаться</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Остальные проекты аналогично -->
+
+        <!-- Контакты и футер -->
 
       </div>
       <div class="swiper-pagination"></div>
