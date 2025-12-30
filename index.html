@@ -14,7 +14,8 @@
     :root {
       --overlay: rgba(0,0,0,0.6);
       --text: #ffffff;
-      --menu-bg: rgba(0,0,0,0.6);
+      --menu-bg: rgba(0,0,0,0.8);
+      --accent: #00aaff;
     }
 
     * {
@@ -28,7 +29,6 @@
       overflow: hidden;
     }
 
-    /* Scroll-snap container */
     .snap-container {
       height: 100vh;
       overflow-y: scroll;
@@ -41,11 +41,9 @@
       position: relative;
       display: flex;
       align-items: center;
-      padding: 80px 0;
-      color: var(--text);
+      padding: 80px 20px;
     }
 
-    /* Background image */
     .bg-img {
       position: absolute;
       inset: 0;
@@ -54,7 +52,6 @@
       z-index: 1;
     }
 
-    /* Overlay */
     .overlay {
       position: absolute;
       inset: 0;
@@ -62,22 +59,17 @@
       z-index: 2;
     }
 
-    /* Content */
     .content {
       position: relative;
       z-index: 3;
-      max-width: 600px;
-      padding: 0 20px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    .centered { margin: 0 auto; text-align: center; }
-    .right { margin-left: auto; text-align: right; }
-    .left { margin-right: auto; text-align: left; }
-
-    /* Fade-in-up animation */
+    /* Анимация */
     .fade-up {
       opacity: 0;
-      transform: translateY(25px);
+      transform: translateY(30px);
       animation: fadeUp 1.2s forwards;
     }
 
@@ -85,64 +77,73 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Top menu */
+    /* Навигация */
     .top-nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      height: 60px;
+      height: 70px;
       background: var(--menu-bg);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 25px;
+      padding: 0 30px;
+      transition: height 0.3s;
     }
 
     .logo {
       font-weight: 800;
       letter-spacing: 0.1em;
-      line-height: 1;
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
+
     .logo span {
       display: block;
       font-weight: 300;
       letter-spacing: 0.25em;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
     }
 
     .nav-links a {
       color: #fff;
       text-decoration: none;
-      margin-left: 20px;
-      font-size: 0.95rem;
+      font-size: 1rem;
       position: relative;
     }
+
     .nav-links a::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: -3px;
+      bottom: -4px;
       width: 0;
       height: 2px;
-      background: #00aaff;
-      transition: width 0.2s;
+      background: var(--accent);
+      transition: width 0.3s;
     }
+
     .nav-links a:hover::after {
       width: 100%;
     }
 
-    /* Buttons */
+    /* Кнопки */
     .btn-outline-white {
       border: 2px solid #fff;
       color: #fff;
-      padding: 10px 22px;
+      padding: 12px 28px;
       border-radius: 30px;
       transition: 0.3s;
+      text-decoration: none;
     }
+
     .btn-outline-white:hover {
       background: #fff;
       color: #000;
@@ -151,55 +152,99 @@
     .btn-solid {
       background: #fff;
       color: #000;
-      padding: 10px 22px;
+      padding: 12px 28px;
       border-radius: 30px;
       border: none;
       transition: 0.3s;
+      text-decoration: none;
     }
+
     .btn-solid:hover {
       opacity: 0.85;
     }
 
-    /* MOBILE FIXES */
-    @media (max-width: 768px) {
+    /* Карточки */
+    .card-custom {
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 25px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    /* Мобильные стили */
+    @media (max-width: 992px) {
+      .top-nav {
+        height: 60px;
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--menu-bg);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+        gap: 30px;
+        transform: translateY(-100%);
+        transition: transform 0.4s ease;
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+      }
+
+      .hamburger {
+        display: block;
+        font-size: 1.8rem;
+        color: #fff;
+        cursor: pointer;
+        z-index: 1001;
+      }
 
       .snap-section {
-        padding: 40px 0;
+        padding: 60px 20px;
       }
 
-      .content {
-        max-width: 90%;
-      }
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.8rem; }
+      h5 { font-size: 1.3rem; }
 
-      h1 { font-size: 26px; }
-      h2 { font-size: 22px; }
-      h5 { font-size: 18px; }
-
-      /* Меню */
-      .top-nav {
-        height: 50px;
-        padding: 0 15px;
-      }
-
-      /* Карточки в один столбец */
-      .col-md-3,
-      .col-md-6 {
-        width: 100%;
-      }
-
-      /* Картинки в карточках */
-      .col-md-3 div[style*="height:180px"],
-      .col-md-6 div[style*="height:180px"] {
-        height: 120px !important;
-      }
-
-      /* Карточки — больше воздуха */
-      .col-md-3 > div,
-      .col-md-6 > div {
-        padding: 20px !important;
+      .card-img {
+        height: 180px;
       }
     }
 
+    @media (max-width: 576px) {
+      h1 { font-size: 1.9rem; }
+      h2 { font-size: 1.6rem; }
+
+      .card-img {
+        height: 150px;
+      }
+
+      .card-custom {
+        padding: 20px;
+      }
+    }
+
+    .hamburger {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -210,6 +255,11 @@
       KAZARENKO
       <span>DIGITAL</span>
     </div>
+
+    <div class="hamburger" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('active')">
+      <i class="fas fa-bars"></i>
+    </div>
+
     <div class="nav-links">
       <a href="#hero">Главная</a>
       <a href="#about">О компании</a>
@@ -226,10 +276,10 @@
     <section id="hero" class="snap-section">
       <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');"></div>
       <div class="overlay"></div>
-      <div class="content centered fade-up">
+      <div class="content text-center fade-up">
         <h1>Kazarenko Digital</h1>
-        <p>Telegram‑боты, автоответчики, CRM и сайты под ключ</p>
-        <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-3 d-inline-block">
+        <p class="lead">Telegram‑боты, автоответчики, CRM и сайты под ключ</p>
+        <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-4 d-inline-block">
           <i class="fa-brands fa-telegram"></i> Связаться
         </a>
       </div>
@@ -239,11 +289,11 @@
     <section id="about" class="snap-section">
       <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475');"></div>
       <div class="overlay"></div>
-      <div class="content left fade-up">
+      <div class="content fade-up">
         <h2>О компании</h2>
         <p>
-          Я — Гога, разработчик Telegram‑ботов и сайтов.  
-          Делаю автоответчики, CRM‑ботов, чат‑ботов для бизнеса, лендинги и автоматизацию процессов.  
+          Я — Гога, разработчик Telegram‑ботов и сайтов.<br>
+          Делаю автоответчики, CRM‑ботов, чат‑ботов для бизнеса, лендинги и автоматизацию процессов.<br>
           Помогаю компаниям экономить время, не терять заявки и выстраивать удобную коммуникацию с клиентами.
         </p>
       </div>
@@ -253,57 +303,42 @@
     <section id="services" class="snap-section">
       <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1559027615-ce3b53c9f8a2');"></div>
       <div class="overlay"></div>
+      <div class="content fade-up text-center">
 
-      <div class="content fade-up" style="max-width:900px; margin:0 auto; text-align:center;">
-
-        <div style="
-          width:100%;
-          height:180px;
-          background-image:url('https://images.unsplash.com/photo-1551650975-87deedd944c3');
-          background-size:cover;
-          background-position:center;
-          border-radius:15px;
-          margin-bottom:25px;
-          opacity:0.9;
-        "></div>
+        <div class="card-img mb-4" style="background-image:url('https://images.unsplash.com/photo-1551650975-87deedd944c3'); border-radius:15px;"></div>
 
         <h2>Услуги</h2>
-        <p>Комплексные digital‑решения для бизнеса</p>
+        <p class="lead">Комплексные digital‑решения для бизнеса</p>
 
-        <div class="row mt-4 g-4">
-
-          <div class="col-md-3">
-            <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
+        <div class="row mt-5 g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="card-custom">
               <h5>Чат‑боты</h5>
-              <p style="font-size:0.9rem;">Умные боты для бизнеса</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white d-inline-block mt-2">Связаться</a>
+              <p>Умные боты для бизнеса</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto d-inline-block">Связаться</a>
             </div>
           </div>
-
-          <div class="col-md-3">
-            <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
+          <div class="col-lg-3 col-md-6">
+            <div class="card-custom">
               <h5>Автоответчик</h5>
-              <p style="font-size:0.9rem;">Ответы 24/7 без менеджера</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white d-inline-block mt-2">Связаться</a>
+              <p>Ответы 24/7 без менеджера</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto d-inline-block">Связаться</a>
             </div>
           </div>
-
-          <div class="col-md-3">
-            <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
+          <div class="col-lg-3 col-md-6">
+            <div class="card-custom">
               <h5>CRM‑боты</h5>
-              <p style="font-size:0.9rem;">Учёт клиентов, статусы, аналитика</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white d-inline-block mt-2">Связаться</a>
+              <p>Учёт клиентов, статусы, аналитика</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto d-inline-block">Связаться</a>
             </div>
           </div>
-
-          <div class="col-md-3">
-            <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
+          <div class="col-lg-3 col-md-6">
+            <div class="card-custom">
               <h5>Сайты</h5>
-              <p style="font-size:0.9rem;">Лендинги и визитки</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white d-inline-block mt-2">Связаться</a>
+              <p>Лендинги и визитки</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto d-inline-block">Связаться</a>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -312,79 +347,42 @@
     <section id="projects" class="snap-section">
       <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1551650975-87deedd944c3');"></div>
       <div class="overlay"></div>
+      <div class="content fade-up text-center">
+        <h2 class="mb-5">Проекты</h2>
 
-      <div class="content fade-up" style="max-width:900px; margin:0 auto; text-align:center;">
-
-        <div class="row mt-4 g-4">
-
-          <div class="col-md-6">
-            <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
-              <div style="
-                width:100%;
-                height:180px;
-                background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984');
-                background-size:cover;
-                background-position:center;
-                border-radius:10px;
-                margin-bottom:15px;
-              "></div>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="card-custom">
+              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984');"></div>
               <h5>Бот для онлайн‑школы</h5>
-              <p style="font-size:0.9rem;">Автоматизация заявок, уроков и рассылок</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white d-inline-block mt-2">Связаться</a>
+              <p>Автоматизация заявок, уроков и рассылок</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto d-inline-block">Связаться</a>
             </div>
           </div>
-
-          <div class="col-md-6">
-            <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
-              <div style="
-                width:100%;
-                height:180px;
-                background-image:url('https://images.unsplash.com/photo-1556228720-195a672e8a03');
-                background-size:cover;
-                background-position:center;
-                border-radius:10px;
-                margin-bottom:15px;
-              "></div>
+          <div class="col-lg-6">
+            <div class="card-custom">
+              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1556228720-195a672e8a03');"></div>
               <h5>Автоответчик для салона красоты</h5>
-              <p style="font-size:0.9rem;">Запись 24/7, напоминания, ответы без менеджера</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white d-inline-block mt-2">Связаться</a>
+              <p>Запись 24/7, напоминания, ответы без менеджера</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto d-inline-block">Связаться</a>
             </div>
           </div>
-
-          <div class="col-md-6">
-            <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
-              <div style="
-                width:100%;
-                height:180px;
-                background-image:url('https://images.unsplash.com/photo-1556155092-8707de31f9c4');
-                background-size:cover;
-                background-position:center;
-                border-radius:10px;
-                margin-bottom:15px;
-              "></div>
+          <div class="col-lg-6">
+            <div class="card-custom">
+              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1556155092-8707de31f9c4');"></div>
               <h5>CRM‑бот для менеджеров</h5>
-              <p style="font-size:0.9rem;">Учёт клиентов, статусы, аналитика</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white d-inline-block mt-2">Связаться</a>
+              <p>Учёт клиентов, статусы, аналитика</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto d-inline-block">Связаться</a>
             </div>
           </div>
-
-          <div class="col-md-6">
-            <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
-              <div style="
-                width:100%;
-                height:180px;
-                background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');
-                background-size:cover;
-                background-position:center;
-                border-radius:10px;
-                margin-bottom:15px;
-              "></div>
+          <div class="col-lg-6">
+            <div class="card-custom">
+              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');"></div>
               <h5>Лендинг для бизнеса</h5>
-              <p style="font-size:0.9rem;">Продающий сайт под ключ</p>
-              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white d-inline-block mt-2">Связаться</a>
+              <p>Продающий сайт под ключ</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto d-inline-block">Связаться</a>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -393,10 +391,10 @@
     <section id="contacts" class="snap-section">
       <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9');"></div>
       <div class="overlay"></div>
-      <div class="content right fade-up">
+      <div class="content fade-up text-end">
         <h2>Контакты</h2>
         <p>Связаться со мной можно через:</p>
-        <a href="https://t.me/GeorgyKazarenko" class="btn-solid mt-3 d-inline-block">
+        <a href="https://t.me/GeorgyKazarenko" class="btn-solid mt-4 d-inline-block">
           <i class="fa-brands fa-telegram"></i> Telegram
         </a>
       </div>
@@ -406,7 +404,7 @@
     <section class="snap-section">
       <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1527443224154-c4a3942d3acf');"></div>
       <div class="overlay"></div>
-      <div class="content centered fade-up">
+      <div class="content fade-up text-center">
         <p>Kazarenko Digital • Telegram‑боты, автоответчики, CRM и сайты</p>
       </div>
     </section>
@@ -415,4 +413,3 @@
 
 </body>
 </html>
-
