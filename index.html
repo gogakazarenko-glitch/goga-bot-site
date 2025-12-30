@@ -5,11 +5,8 @@
   <title>Kazarenko Digital — Telegram‑боты и сайты</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
   <style>
@@ -24,7 +21,6 @@
 
     body { margin: 0; font-family: 'Segoe UI', sans-serif; color: var(--text); }
 
-    /* Десктоп */
     .snap-container { scroll-snap-type: y mandatory; }
     .snap-section {
       min-height: 100vh;
@@ -36,7 +32,6 @@
       box-sizing: border-box;
     }
 
-    /* Мобильный Swiper */
     .swiper { width: 100%; height: 100vh; }
     .swiper-slide {
       position: relative;
@@ -78,7 +73,6 @@
 
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    /* Навигация */
     .top-nav {
       position: fixed;
       top: 0;
@@ -107,7 +101,6 @@
     }
     .nav-links a:hover::after { width: 100%; }
 
-    /* Кнопки */
     .btn-outline-white, .btn-solid {
       padding: 10px 25px; border-radius: 30px; text-decoration: none;
       display: inline-block; font-weight: 500; transition: 0.3s;
@@ -117,7 +110,6 @@
     .btn-solid { background: #fff; color: #000; }
     .btn-solid:hover { opacity: 0.85; }
 
-    /* Карточки */
     .card-custom {
       background: rgba(255,255,255,0.1);
       border-radius: 15px;
@@ -137,11 +129,9 @@
 
     .hamburger { display: none; font-size: 1.8rem; color: #fff; cursor: pointer; }
 
-    /* Пагинация */
     .swiper-pagination-bullet { background: rgba(255,255,255,0.5); opacity: 1; }
     .swiper-pagination-bullet-active { background: #fff; }
 
-    /* Мобильные стили */
     @media (max-width: 992px) {
       .snap-container { display: none; }
       .mobile-swiper-container { display: block !important; }
@@ -176,7 +166,6 @@
 </head>
 <body>
 
-  <!-- МЕНЮ -->
   <nav class="top-nav">
     <div class="logo">KAZARENKO<span>DIGITAL</span></div>
     <div class="hamburger" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('active')">
@@ -248,17 +237,44 @@
       </div>
     </section>
 
-    <!-- Остальные секции десктопа без изменений -->
     <section id="projects" class="snap-section">
       <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1551650975-87deedd944c3');"></div>
       <div class="overlay"></div>
       <div class="content text-center fade-up">
         <h2 class="mb-5">Проекты</h2>
         <div class="row g-4 justify-content-center">
-          <div class="col-lg-6 col-md-8"><div class="card-custom"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984');"></div><h5>Бот для онлайн‑школы</h5><p>Автоматизация заявок, уроков и рассылок</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a></div></div>
-          <div class="col-lg-6 col-md-8"><div class="card-custom"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1556228720-195a672e8a03');"></div><h5>Автоответчик для салона красоты</h5><p>Запись 24/7, напоминания, ответы без менеджера</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a></div></div>
-          <div class="col-lg-6 col-md-8"><div class="card-custom"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1556155092-8707de31f9c4');"></div><h5>CRM‑бот для менеджеров</h5><p>Учёт клиентов, статусы, аналитика</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a></div></div>
-          <div class="col-lg-6 col-md-8"><div class="card-custom"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');"></div><h5>Лендинг для бизнеса</h5><p>Продающий сайт под ключ</p><a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a></div></div>
+          <div class="col-lg-6 col-md-8">
+            <div class="card-custom">
+              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984');"></div>
+              <h5>Бот для онлайн‑школы</h5>
+              <p>Автоматизация заявок, уроков и рассылок</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-8">
+            <div class="card-custom">
+              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1556228720-195a672e8a03');"></div>
+              <h5>Автоответчик для салона красоты</h5>
+              <p>Запись 24/7, напоминания, ответы без менеджера</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-8">
+            <div class="card-custom">
+              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1556155092-8707de31f9c4');"></div>
+              <h5>CRM‑бот для менеджеров</h5>
+              <p>Учёт клиентов, статусы, аналитика</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-8">
+            <div class="card-custom">
+              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');"></div>
+              <h5>Лендинг для бизнеса</h5>
+              <p>Продающий сайт под ключ</p>
+              <a href="https://t.me/GeorgyKazarenko" class="btn-outline-white mt-auto">Связаться</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -303,9 +319,9 @@
           </div>
         </div>
 
-        <!-- Услуги с индивидуальными фонами -->
+        <!-- Чат-боты -->
         <div class="swiper-slide">
-          <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1611224923853-07e0668883ed');"></div> <!-- чат в телефоне -->
+          <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1607252650355-f7fd54601f3e');"></div>
           <div class="overlay"></div>
           <div class="content text-center fade-up">
             <h2>Услуги</h2>
@@ -318,8 +334,9 @@
           </div>
         </div>
 
+        <!-- Автоответчик -->
         <div class="swiper-slide">
-          <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1557682250-33bd709cbe85');"></div> <!-- уведомления, автоответ -->
+          <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1611224923853-07e0668883ed');"></div>
           <div class="overlay"></div>
           <div class="content text-center fade-up">
             <div class="card-custom">
@@ -331,8 +348,9 @@
           </div>
         </div>
 
+        <!-- CRM-боты -->
         <div class="swiper-slide">
-          <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71');"></div> <!-- дашборд аналитики -->
+          <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71');"></div>
           <div class="overlay"></div>
           <div class="content text-center fade-up">
             <div class="card-custom">
@@ -344,8 +362,9 @@
           </div>
         </div>
 
+        <!-- Сайты -->
         <div class="swiper-slide">
-          <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1517189370091-75f8c6d63772');"></div> <!-- ноутбук с сайтом -->
+          <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');"></div>
           <div class="overlay"></div>
           <div class="content text-center fade-up">
             <div class="card-custom">
@@ -357,7 +376,7 @@
           </div>
         </div>
 
-        <!-- Проекты (оставил как было, с общим фоном) -->
+        <!-- Проекты (каждый отдельный слайд) -->
         <div class="swiper-slide">
           <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1551650975-87deedd944c3');"></div>
           <div class="overlay"></div>
@@ -411,7 +430,7 @@
           </div>
         </div>
 
-        <!-- Контакты и футер -->
+        <!-- Контакты -->
         <div class="swiper-slide">
           <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9');"></div>
           <div class="overlay"></div>
@@ -424,6 +443,7 @@
           </div>
         </div>
 
+        <!-- Футер -->
         <div class="swiper-slide">
           <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1527443224154-c4a3942d3acf');"></div>
           <div class="overlay"></div>
@@ -437,7 +457,6 @@
     </div>
   </div>
 
-  <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     if (window.innerWidth <= 992) {
