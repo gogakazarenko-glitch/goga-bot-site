@@ -70,23 +70,9 @@
       padding: 0 20px;
     }
 
-    /* Centered content */
-    .centered {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    /* Right aligned */
-    .right {
-      margin-left: auto;
-      text-align: right;
-    }
-
-    /* Left aligned */
-    .left {
-      margin-right: auto;
-      text-align: left;
-    }
+    .centered { margin: 0 auto; text-align: center; }
+    .right { margin-left: auto; text-align: right; }
+    .left { margin-right: auto; text-align: left; }
 
     /* Fade-in-up animation */
     .fade-up {
@@ -96,10 +82,7 @@
     }
 
     @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Top menu */
@@ -177,6 +160,46 @@
       opacity: 0.85;
     }
 
+    /* MOBILE FIXES */
+    @media (max-width: 768px) {
+
+      .snap-section {
+        padding: 40px 0;
+      }
+
+      .content {
+        max-width: 90%;
+      }
+
+      h1 { font-size: 26px; }
+      h2 { font-size: 22px; }
+      h5 { font-size: 18px; }
+
+      /* Меню */
+      .top-nav {
+        height: 50px;
+        padding: 0 15px;
+      }
+
+      /* Карточки в один столбец */
+      .col-md-3,
+      .col-md-6 {
+        width: 100%;
+      }
+
+      /* Картинки в карточках */
+      .col-md-3 div[style*="height:180px"],
+      .col-md-6 div[style*="height:180px"] {
+        height: 120px !important;
+      }
+
+      /* Карточки — больше воздуха */
+      .col-md-3 > div,
+      .col-md-6 > div {
+        padding: 20px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -226,14 +249,13 @@
       </div>
     </section>
 
-    <!-- SERVICES (WITH IMAGE + CARDS) -->
+    <!-- SERVICES -->
     <section id="services" class="snap-section">
       <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1559027615-ce3b53c9f8a2');"></div>
       <div class="overlay"></div>
 
       <div class="content fade-up" style="max-width:900px; margin:0 auto; text-align:center;">
 
-        <!-- ВСТАВЛЕННАЯ КАРТИНКА -->
         <div style="
           width:100%;
           height:180px;
@@ -250,7 +272,6 @@
 
         <div class="row mt-4 g-4">
 
-          <!-- Чат‑боты -->
           <div class="col-md-3">
             <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
               <h5>Чат‑боты</h5>
@@ -259,7 +280,6 @@
             </div>
           </div>
 
-          <!-- Автоответчик -->
           <div class="col-md-3">
             <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
               <h5>Автоответчик</h5>
@@ -268,7 +288,6 @@
             </div>
           </div>
 
-          <!-- CRM -->
           <div class="col-md-3">
             <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
               <h5>CRM‑боты</h5>
@@ -277,7 +296,6 @@
             </div>
           </div>
 
-          <!-- Сайты -->
           <div class="col-md-3">
             <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
               <h5>Сайты</h5>
@@ -290,7 +308,7 @@
       </div>
     </section>
 
-    <!-- PROJECTS (ONLY CARDS, 2×2) -->
+    <!-- PROJECTS -->
     <section id="projects" class="snap-section">
       <div class="bg-img" style="background-image:url('https://images.unsplash.com/photo-1551650975-87deedd944c3');"></div>
       <div class="overlay"></div>
@@ -299,7 +317,6 @@
 
         <div class="row mt-4 g-4">
 
-          <!-- Проект 1 -->
           <div class="col-md-6">
             <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
               <div style="
@@ -317,7 +334,6 @@
             </div>
           </div>
 
-          <!-- Проект 2 -->
           <div class="col-md-6">
             <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
               <div style="
@@ -335,7 +351,6 @@
             </div>
           </div>
 
-          <!-- Проект 3 -->
           <div class="col-md-6">
             <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
               <div style="
@@ -353,7 +368,6 @@
             </div>
           </div>
 
-          <!-- Проект 4 -->
           <div class="col-md-6">
             <div style="background:rgba(255,255,255,0.1); border-radius:15px; padding:15px;">
               <div style="
