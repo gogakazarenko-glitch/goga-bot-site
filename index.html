@@ -47,12 +47,14 @@
       font-size: 64px;
       font-weight: 700;
       margin-bottom: 20px;
+      animation: fadeInUp 1.2s ease forwards;
     }
 
     .hero p {
       font-size: 22px;
       max-width: 500px;
       opacity: 0.7;
+      animation: fadeInUp 1.6s ease forwards;
     }
 
     .btn-black {
@@ -64,10 +66,12 @@
       display: inline-block;
       margin-top: 25px;
       transition: 0.3s;
+      animation: fadeInUp 2s ease forwards;
     }
 
     .btn-black:hover {
       opacity: 0.8;
+      transform: scale(1.05);
     }
 
     /* SERVICES */
@@ -78,11 +82,21 @@
     .services h2 {
       font-size: 42px;
       margin-bottom: 40px;
+      text-align: center;
+      animation: fadeInUp 1s ease forwards;
     }
 
     .service-item {
       padding: 40px 0;
       border-bottom: 1px solid rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .service-item.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .service-item:last-child {
@@ -99,14 +113,90 @@
       max-width: 500px;
     }
 
+    /* PROJECTS — PREMIUM DARK */
+    .projects {
+      padding: 140px 40px;
+      background: #000;
+      color: #fff;
+    }
+
+    .projects h2 {
+      font-size: 48px;
+      margin-bottom: 80px;
+      text-align: center;
+      font-weight: 700;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .project-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 120px;
+      gap: 60px;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 1s ease;
+    }
+
+    .project-row.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-row:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .project-image {
+      flex: 1;
+    }
+
+    .project-image img {
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 0 40px rgba(255,255,255,0.08);
+      transition: 0.4s;
+    }
+
+    .project-image img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 60px rgba(255,255,255,0.12);
+    }
+
+    .project-text {
+      flex: 1;
+    }
+
+    .project-text h3 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .project-text p {
+      font-size: 18px;
+      opacity: 0.8;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
     /* CONTACTS */
     .contacts {
       padding: 120px 40px;
       text-align: center;
+      background: #f9f9f9;
     }
 
     .contacts h2 {
       font-size: 42px;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .contacts p {
+      font-size: 18px;
+      opacity: 0.7;
       margin-bottom: 20px;
     }
 
@@ -117,11 +207,29 @@
       font-size: 14px;
     }
 
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* MOBILE */
+    @media(max-width: 900px) {
+      .project-row {
+        flex-direction: column !important;
+        text-align: center;
+      }
+      .project-text p {
+        margin: 0 auto;
+      }
+    }
+
     @media(max-width: 768px) {
       .hero h1 { font-size: 42px; }
       .hero p { font-size: 18px; }
-      .services h2, .contacts h2 { font-size: 32px; }
+      .services h2, .contacts h2, .projects h2 { font-size: 32px; }
+      .project-text h3 { font-size: 26px; }
+      .project-text p { font-size: 16px; }
     }
   </style>
 </head>
@@ -134,6 +242,7 @@
     <div>
       <a href="#hero">Главная</a>
       <a href="#services">Услуги</a>
+      <a href="#projects">Проекты</a>
       <a href="#contacts">Контакты</a>
     </div>
   </nav>
@@ -172,17 +281,19 @@
     </div>
   </section>
 
-  <!-- CONTACTS -->
-  <section id="contacts" class="contacts">
-    <h2>Контакты</h2>
-    <p>Связаться со мной можно через Telegram</p>
-    <a href="https://t.me/GeorgyKazarenko" class="btn-black">Открыть Telegram</a>
-  </section>
+  <!-- PROJECTS -->
+  <section id="projects" class="projects">
+    <h2>Проекты</h2>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    Kazarenko Digital • Telegram‑боты, автоответчики, CRM и сайты
-  </div>
+    <div class="project-row">
+      <div class="project-image">
+        <img src="https://img.freepik.com/free-psd/telegram-bot-interface-mockup_1234.jpg" alt="Telegram Bot Project">
+      </div>
+      <div class="project-text">
+        <h3>Telegram‑бот для онлайн‑школы</h3>
+        <p>Автоматизация заявок, CRM‑учёт, напоминания, интеграции с платежами.</p>
+      </div>
+    </div>
 
-</body>
-</html>
+    <div class="project-row">
+      <div class="project
